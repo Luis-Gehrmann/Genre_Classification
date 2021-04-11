@@ -136,3 +136,24 @@ def predictSound(path):
 
   for i in range(len(prediction)):
       print(f"Soundfile {filenames[i]}: Ausgabe: {prediction_index[prediction[i]]} mit Confidence: {predictions[i][prediction[i]]}")
+      
+  genreCountList = [0] * len(prediction_index)
+  genreCount = np.asarray(genreCountList)
+
+  for i in range(len(prediction)):
+      print(f"Soundfile {filenames[i]}: Ausgabe: {prediction_index[prediction[i]]} mit Confidence: {predictions[i][prediction[i]]}")
+
+      #Wie häufig wurde jedes Genre genannt
+      genreCount[prediction[i]]+=1
+
+  for i in range(len(genreCount)):
+          for j in range(len(genreCount) - (i+1)):
+              if genreCount[j] < genreCount[j+1]:
+                  # Swap
+                  genreCount[j], genreCount[j+1] = genreCount[j+1], genreCount[j]
+                  prediction_index[j], prediction_index[j+1] = prediction_index[j+1], prediction_index[j]
+
+  count = 0
+  for i in prediction_index:
+      print(f"Platz {count} ist {prediction_index[i]} mit einer Häufigkeit von {genreCount[i]}")
+      count+=1
