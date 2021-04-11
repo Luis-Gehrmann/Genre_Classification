@@ -1,4 +1,5 @@
 import os
+import shutil
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from createUser import init
@@ -18,5 +19,6 @@ def getFile():
       f = request.files['file']
       f.save(UPLOAD_FOLDER+"/Input/"+secure_filename(f.filename))
       predictionsList = predictSound(UPLOAD_FOLDER)
+      shutil.rmtree(UPLOAD_FOLDER)
       return 'Klassifizierung: '+str(predictionsList[0])
     
