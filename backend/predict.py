@@ -117,3 +117,22 @@ def predictSound(path):
   features_normalized = pd.DataFrame(np_scaled, columns = cols)
 
   print(features_normalized)
+  
+  #Model laden
+  from tensorflow import keras
+  loaded_model = keras.models.load_model(f'Programm/model_saved')
+  #Dict laden
+  #Pickle load:
+  with open(f'Programm/prediction_index.p', 'rb') as fp:
+      prediction_index = pickle.load(fp)
+  
+    #Model anwenden
+  loaded_model.compile(optimizer='adam',
+               loss='sparse_categorical_crossentropy',
+               metrics=['accuracy'])
+
+  predictions = loaded_model.predict(features_normalized)
+  prediction = np.argmax(predictions,1)
+
+  for i in range(len(prediction)):
+      print(f"Soundfile {filenames[i]}: Ausgabe: {prediction_index[prediction[i]]} mit Confidence: {predictions[i][prediction[i]]}")
