@@ -17,6 +17,6 @@ def getFile():
     if request.method == 'POST':
       f = request.files['file']
       f.save(UPLOAD_FOLDER+"/Input/"+secure_filename(f.filename))
-      predictSound(UPLOAD_FOLDER)
-      return 'file uploaded successfully'
+      predictionsList = predictSound(UPLOAD_FOLDER)
+      return 'Klassifizierung: '+str(predictionsList[0])
     
