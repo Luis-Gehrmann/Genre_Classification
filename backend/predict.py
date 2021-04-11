@@ -104,3 +104,16 @@ def predictSound(path):
 
       #Anhängen eines Eintrages
       features.append(attributes)
+  
+  import pandas as pd
+  import sklearn.preprocessing as skp
+  import joblib
+
+  # normalize
+  df = pd.DataFrame(features) 
+  cols = df.columns
+  min_max_scaler = joblib.load(f'{os_dir}\\Programm\\scaler.gz')
+  np_scaled = min_max_scaler.transform(features)
+  features_normalized = pd.DataFrame(np_scaled, columns = cols)
+
+  print(features_normalized)
