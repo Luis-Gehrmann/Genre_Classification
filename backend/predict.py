@@ -157,3 +157,5 @@ def predictSound(path):
   for i in prediction_index:
       print(f"Platz {count} ist {prediction_index[i]} mit einer Häufigkeit von {genreCount[i]}")
       count+=1
+  
+  return prediction_index
