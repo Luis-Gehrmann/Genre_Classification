@@ -11,5 +11,5 @@ def init():
     Path("Clients/"+str(client_id)+"/Input").mkdir(parents=True, exist_ok=True)
     Path("Clients/"+str(client_id)+"/processed_Input").mkdir(parents=True, exist_ok=True)
 
-    path_to_soundfilefolder = "Clients/"+str(client_id)+"/Input"
+    path_to_soundfilefolder = "Clients/"+str(client_id)
     return path_to_soundfilefolder
