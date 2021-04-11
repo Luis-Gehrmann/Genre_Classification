@@ -28,11 +28,10 @@ def predictSound(path):
           newAudio = AudioSegment.from_wav(file)
           newAudio = newAudio[t1:t2]
           filename = i.split(".wav")[0]
-          print(filename)
-          newAudio.export(path+"processed_Input/{filename}_{slicenumber}.wav", format="wav")
-          
+          newAudio.export(f"{path}/processed_Input/{filename}_{slicenumber}.wav", format="wav")
+      print("Audio Sliced")    
   #Create Folder if processed audio not exists
-  path_to_soundfilefolder = path+"/processed_Input"
+  path_to_soundfilefolder = path+"/processed_Input/"
 
   #enthält sämtliche Eigenschaften der Einträge
   features = []
@@ -40,7 +39,7 @@ def predictSound(path):
   #enthält sämtliche Namen der Einträge
   filenames = []
   
-  print(path_to_soundfilefolder)
+  print("Attribute Folder: "+path_to_soundfilefolder)
 
   for filename in os.listdir(path_to_soundfilefolder):
       #Name der Datei wird abgespeichert, um ihn am Ende auszugeben

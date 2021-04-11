@@ -1,0 +1,3 @@
+#!/home/ubuntu/Genre_Classification/backend/venv/bin/python3
+from numba.pycc import main
+main()

@@ -2,6 +2,7 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from createUser import init
+from predict import predictSound
 
 ALLOWED_EXTENSIONS = {'csv','mp3','wav'}
 app = Flask(__name__)
@@ -16,5 +17,6 @@ def getFile():
     if request.method == 'POST':
       f = request.files['file']
       f.save(UPLOAD_FOLDER+"/Input/"+secure_filename(f.filename))
+      predictSound(UPLOAD_FOLDER)
       return 'file uploaded successfully'
     
