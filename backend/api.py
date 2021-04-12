@@ -22,5 +22,5 @@ def getFile():
       convertMP3(UPLOAD_FOLDER+"/Input/")  
       predictionsList = predictSound(UPLOAD_FOLDER)
       shutil.rmtree(UPLOAD_FOLDER)
-      return str(predictionsList[0]+","+","predictionsList[1]+","predictionsList[2])
+      return str(predictionsList[0]+","+","+predictionsList[1]+","predictionsList[2])
     
