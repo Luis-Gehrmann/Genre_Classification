@@ -4,7 +4,7 @@ from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from createUser import init
 from predict import predictSound
-from convert import 
+from convert import convertMP3
 
 ALLOWED_EXTENSIONS = {'csv','mp3','wav'}
 app = Flask(__name__)
