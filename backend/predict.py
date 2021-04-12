@@ -134,8 +134,6 @@ def predictSound(path):
   predictions = loaded_model.predict(features_normalized)
   prediction = np.argmax(predictions,1)
 
-  for i in range(len(prediction)):
-      print(f"Soundfile {filenames[i]}: Ausgabe: {prediction_index[prediction[i]]} mit Confidence: {predictions[i][prediction[i]]}")
       
   genreCountList = [0] * len(prediction_index)
   genreCount = np.asarray(genreCountList)
