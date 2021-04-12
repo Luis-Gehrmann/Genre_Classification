@@ -11,5 +11,6 @@ def convertMP3(path):
             i = i.split(".mp3")[0]
             dst = f"{path_to_soundfilefolder}/{i}.wav"
             sound.export(dst, format="wav")
+            os.remove(src)
         else:
             print("No MP3 found")
