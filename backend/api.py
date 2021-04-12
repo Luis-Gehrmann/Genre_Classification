@@ -21,6 +21,6 @@ def getFile():
       f.save(UPLOAD_FOLDER+"/Input/"+secure_filename(f.filename))
       convertMP3(UPLOAD_FOLDER+"/Input/")  
       predictionsList = predictSound(UPLOAD_FOLDER)
-      shutil.rmtree(UPLOAD_FOLDER)
+      #shutil.rmtree(UPLOAD_FOLDER)
       return 'Klassifizierung: '+str(predictionsList[0])
     
