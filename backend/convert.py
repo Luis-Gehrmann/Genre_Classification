@@ -7,7 +7,7 @@ def convertMP3(path):
         end = i.split(".")[-1]
         if end == "mp3":
             src = f"{path_to_soundfilefolder}/{i}"
-            sound = AudioSegment.from_mp3()
+            sound = AudioSegment.from_mp3(src)
             i = i.split(".mp3")[0]
             dst = f"{path_to_soundfilefolder}/{i}.wav"
             sound.export(dst, format="wav")
