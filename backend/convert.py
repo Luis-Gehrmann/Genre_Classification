@@ -1,10 +1,8 @@
 import os
 from pydub import AudioSegment
 
-
-
-    os_dir = os.getcwd()
-    path_to_soundfilefolder = f"{os_dir}\\test"
+def convertMP3(path):
+    path_to_soundfilefolder = path
     for i in os.listdir(path_to_soundfilefolder):
         if ".mp3" in i:
             src = f"{path_to_soundfilefolder}\\{i}"
