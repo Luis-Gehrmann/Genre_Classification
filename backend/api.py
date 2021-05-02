@@ -5,9 +5,11 @@ from werkzeug.utils import secure_filename
 from createUser import init
 from predict import predictSound
 from convert import convertMP3
+from flask_cors import CORS
 
 ALLOWED_EXTENSIONS = {'csv','mp3','wav'}
 app = Flask(__name__)
+CORS(app)
 
 def allowed_file(filename):
     return '.' in filename and \
