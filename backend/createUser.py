@@ -3,6 +3,7 @@ from pathlib import Path
 import pickle
 import uuid
 
+#Diese Klasse erstellt für jeden Upload einen nutzerspezifischen Ordner in den die Sound Datei und verarbeitete Sounddateien gespeichert werden
 def init():
     client_id = uuid.uuid4()
     #Create Folders if programm folder not exists
