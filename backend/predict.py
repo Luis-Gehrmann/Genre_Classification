@@ -8,8 +8,7 @@ import numpy as np
 import librosa
 import librosa.display
 
-#Diese Klasse ist abgewandelt von predict.py | detailliertere Kommentare sind hier zu finden
-
+#Klasse um aus einer Song Datei eine Aussage über das vorliegende Genre zu treffen 
 def predictSound(path):
   path_to_soundfilefolder = path+"/Input"
   
@@ -18,6 +17,8 @@ def predictSound(path):
 
   filenumber = 0
 
+  
+  #Schneide den Inputsong in 3 Sekundenstücke, welche als Input Menge für das preprocessing dienen 
   for i in os.listdir(path_to_soundfilefolder):
       filenumber +=1
       file = os.path.join(path_to_soundfilefolder, i)
@@ -32,7 +33,7 @@ def predictSound(path):
           filename = i.split(".wav")[0]
           newAudio.export(f"{path}/processed_Input/{filename}_{slicenumber}.wav", format="wav")
       print("Audio Sliced")    
-  #Create Folder if processed audio not exists
+  #Update der Variable auf den Pfad für zerschnittetene Songfragmente
   path_to_soundfilefolder = path+"/processed_Input/"
 
   #enthält sämtliche Eigenschaften der Einträge
@@ -54,7 +55,7 @@ def predictSound(path):
       print(f"Converting: {filename}")
       y, sr = librosa.load(path_to_soundfilefolder + filename)
 
-      #extrahieren der aussagekräftigen Eigenschaften
+      #extrahieren der aussagekräftigen Song Eigenschaften mithilfe der Librosa Libary
       stft_array = librosa.feature.chroma_stft(y=y, sr=sr)
       stft_mean = np.mean(stft_array)
       stft_var = np.var(stft_array)
@@ -111,7 +112,7 @@ def predictSound(path):
   import sklearn.preprocessing as skp
   import joblib
 
-  # normalize
+  # Normalisieren der Daten mithilfe des vorgegebenen Scalers
   df = pd.DataFrame(features) 
   cols = df.columns
   min_max_scaler = joblib.load(f'Programm/scaler.gz')
