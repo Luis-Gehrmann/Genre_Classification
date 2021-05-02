@@ -8,6 +8,8 @@ import numpy as np
 import librosa
 import librosa.display
 
+#Diese Klasse ist abgewandelt von predict.py | detailliertere Kommentare sind hier zu finden
+
 def predictSound(path):
   path_to_soundfilefolder = path+"/Input"
   
