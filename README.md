@@ -7,5 +7,6 @@ Für jeden dieser Abschnitte werden mithilfe der "librosa-library" (eventuell zu
 Für jeden Abschnitt resultiert ein Array an isolierten Eigenschaften, aufgrund dessen ein fertig trainiertes ML-Modell predictions über das Gerne machen kann.
 Zuletzt wird das Genre als Output ausgewählt, welches für die meisten Abschnitte von dem ML-Algorithmus vorausgesagt wurde.
 
-Für die Entwicklung werden zwei Programme benötigt. In Programm 1 wird ein Neuronales Netz auf die korrekte Genrebestimmung trainiert.
-In Programm 2 wird das entwickelte Neuronale Netz für die Prediction eines eingegebenen Soundfiles genutzt
+Das Stammverzeichnis enhält das Notebook Slicing, welches in der Trainingsphase des Neuronalen Netzwerks genutzt wird, um die Traininssongs in 3 Sekundenabschnitte zu zerschneiden. Dies hielten wir für sinnvoll, um eine große Masse einheitlicher Trainingsdaten zu erzeugen
+Das Notebook TrainModel wird dafür verwendet, dass neuronale Netzwerk, sowie ein Dictionary und den Scaler für die Normalisierung zu erzeugen.
+In dem Ordner Backend sind zum einen das Frontend der Webseite, sowie die Backendroute zur Konvertierung und Bestimmung von Genre aus hochgeladenen Songs.
