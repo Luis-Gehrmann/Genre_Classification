@@ -1,6 +1,7 @@
 import os
 from pydub import AudioSegment
 
+#Diese Klasse prüft ob die gegebene Datei im MP3 Format ist und wenn ja, dann wird die Sounddatei in WAV Konvertiert, da librosa dieses Dateiformat benötigt
 def convertMP3(path):
     path_to_soundfilefolder = path
     for i in os.listdir(path_to_soundfilefolder):
